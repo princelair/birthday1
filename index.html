@@ -7,6 +7,25 @@
 
 <style>
 body {
+    <button id="musicBtn">▶ Play Music</button>
+
+<audio id="bgMusic" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+    #musicBtn{
+  margin: 20px 0;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#musicBtn:hover{
+  background: rgba(255,255,255,0.25);
+}
     margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   min-height: 100vh;
@@ -129,9 +148,25 @@ button:hover {
 
 <script>
 function revealMessage() {
-    document.getElementById("secret").style.display = "block";
+  document.getElementById("secret").style.display = "block";
 }
-</script>
 
+const btn = document.getElementById("musicBtn");
+const music = document.getElementById("bgMusic");
+
+btn.addEventListener("click", async () => {
+  if (music.paused) {
+    try {
+      await music.play();
+      btn.textContent = "⏸ Pause Music";
+    } catch (e) {
+      alert("Tap again to allow music.");
+    }
+  } else {
+    music.pause();
+    btn.textContent = "▶ Play Music";
+  }
+});
+</script>
 </body>
 </html>
