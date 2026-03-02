@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday [Chery]</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom right, #ffdde1, #ee9ca7);
+    color: #333;
+    text-align: center;
+}
+
+.container {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 48px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.section {
+    background: white;
+    padding: 30px;
+    margin: 30px 0;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+img {
+    width: 220px;
+    border-radius: 12px;
+    margin: 10px;
+}
+
+button {
+    background-color: #ee9ca7;
+    border: none;
+    padding: 12px 25px;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #d66b82;
+}
+
+.hidden {
+    display: none;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Happy Birthday, [Chery] ❤️</h1>
+    <div class="subtitle">
+        The most amazing girl ever!!!!!
+    </div>
+
+    <div class="section">
+        <h2>Our Story</h2>
+        <p>
+            From the moment we [how you met], I knew there was something different about you.
+            Every memory since then — [favorite trip/moment] — has meant more than you know.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>10 Things I Love About You</h2>
+        <p>
+            1. The way you laugh when you're genuinely happy.<br>
+            2. How you care deeply about the people around you.<br>
+            3. Your [specific trait].<br>
+            4. The way you [inside joke].<br>
+            5. Your ambition.<br>
+            6. Your kindness.<br>
+            7. Your confidence.<br>
+            8. The way you support me.<br>
+            9. Your smile.<br>
+            10. Everything else that makes you, you.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Our Future</h2>
+        <p>
+            This year I can’t wait to [future plan].
+            And one day, we’ll look back at this birthday and laugh at how far we’ve come.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Surprise</h2>
+        <button onclick="revealMessage()">Click Me</button>
+        <div id="secret" class="hidden">
+            <p>
+                I’m grateful for you more than you realize.
+                Thank you for being in my life. ❤️
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+function revealMessage() {
+    document.getElementById("secret").style.display = "block";
+}
+</script>
+
+</body>
+</html>
