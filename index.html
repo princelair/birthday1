@@ -11,18 +11,24 @@ body{
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   min-height: 100vh;
   color: white;
-  background:
-  radial-gradient(circle at 50% 20%, rgba(255,105,180,0.2), transparent 60%),
-  linear-gradient(180deg, #3a1025 0%, #5c1f3a 100%);
 
-  /* Animated GIF borders */
-  background-image: url("border.gif"), url("border.gif");
-  background-repeat: repeat-y, repeat-y;
-  background-position: left top, right top;
-  background-size: 260px auto;
+  /* Pink gradient center */
+  background:
+    radial-gradient(circle at 50% 15%, rgba(255,105,180,0.22), transparent 55%),
+    linear-gradient(180deg, #3a1025 0%, #5c1f3a 100%);
+
+  /* Animated borders */
+  background-image:
+    url("border.gif"),
+    url("border.gif"),
+    radial-gradient(circle at 50% 15%, rgba(255,105,180,0.22), transparent 55%),
+    linear-gradient(180deg, #3a1025 0%, #5c1f3a 100%);
+  background-repeat: repeat-y, repeat-y, no-repeat, no-repeat;
+  background-position: left top, right top, center, center;
+  background-size: 260px auto, 260px auto, cover, cover;
 }
 
-/* Center content */
+/* Center layout */
 .container{
   max-width: 900px;
   margin: 0 auto;
@@ -30,6 +36,17 @@ body{
   text-align: center;
   position: relative;
   z-index: 1;
+}
+
+/* Hero panel for title area */
+.hero{
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 18px;
+  padding: 28px 18px;
+  margin-bottom: 22px;
+  box-shadow: 0 18px 55px rgba(0,0,0,0.28);
+  backdrop-filter: blur(10px);
 }
 
 h1{
@@ -44,7 +61,7 @@ h1{
 
 /* Music button */
 #musicBtn{
-  margin: 10px 0 30px;
+  margin: 10px 0 10px;
   background: rgba(255,255,255,0.15);
   color: white;
   border: 1px solid rgba(255,255,255,0.3);
@@ -88,22 +105,20 @@ button:not(#musicBtn):hover{
   margin-top: 20px;
 }
 
-/* ⭐🌸 Confetti Layer */
+/* ⭐🌸 Confetti */
 #confetti{
   position: fixed;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
-  z-index: 2147483647; /* super high */
+  z-index: 2147483647;
 }
 
 .particle{
   position: absolute;
   top: -30px;
-  font-size: 28px; /* BIG so visible */
-  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.4));
+  font-size: 26px;
   animation: fall var(--dur) linear forwards;
-  will-change: transform, opacity;
 }
 
 @keyframes fall{
@@ -117,18 +132,19 @@ button:not(#musicBtn):hover{
 
 <body>
 
-<!-- Confetti container -->
 <div id="confetti"></div>
 
 <div class="container">
-  <h1>Happy Birthday, Chery ❤️</h1>
-  <div class="subtitle">The most amazing girl ever!!!!!</div>
 
-  <!-- Music -->
-  <button id="musicBtn" type="button">▶ Play Music</button>
-  <audio id="bgMusic" loop>
-    <source src="song.mp3" type="audio/mpeg">
-  </audio>
+  <div class="hero">
+    <h1>Happy Birthday, Chery ❤️</h1>
+    <div class="subtitle">The most amazing girl ever!!!!!</div>
+
+    <button id="musicBtn" type="button">▶ Play Music</button>
+    <audio id="bgMusic" loop>
+      <source src="song.mp3" type="audio/mpeg">
+    </audio>
+  </div>
 
   <div class="section">
     <h2>Our Story</h2>
@@ -172,15 +188,15 @@ button:not(#musicBtn):hover{
       </p>
     </div>
   </div>
+
 </div>
 
 <script>
-// ⭐🌸 Star + Cherry Blossom Burst
-function confettiBurst(count = 180) {
+function confettiBurst(count = 160) {
   const holder = document.getElementById("confetti");
   holder.innerHTML = "";
 
-  const particles = ["✨","⭐","🌸","💫","🌸","✨","🌸","⭐"];
+  const particles = ["✨","⭐","🌸","💫","🌸","✨"];
 
   for (let i = 0; i < count; i++) {
     const piece = document.createElement("div");
@@ -205,18 +221,13 @@ function confettiBurst(count = 180) {
   setTimeout(() => { holder.innerHTML = ""; }, 6500);
 }
 
-// Fire on page load
-window.addEventListener("load", () => {
-  confettiBurst();
-});
+window.addEventListener("load", () => confettiBurst());
 
-// Surprise button
 function revealMessage() {
   document.getElementById("secret").style.display = "block";
   confettiBurst(220);
 }
 
-// Music
 const btn = document.getElementById("musicBtn");
 const music = document.getElementById("bgMusic");
 
