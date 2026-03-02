@@ -12,12 +12,10 @@ body{
   min-height: 100vh;
   color: white;
 
-  /* Pink gradient center */
   background:
     radial-gradient(circle at 50% 15%, rgba(255,105,180,0.22), transparent 55%),
     linear-gradient(180deg, #3a1025 0%, #5c1f3a 100%);
 
-  /* Animated borders */
   background-image:
     url("border.gif"),
     url("border.gif"),
@@ -28,7 +26,7 @@ body{
   background-size: 260px auto, 260px auto, cover, cover;
 }
 
-/* Center layout */
+/* Layout */
 .container{
   max-width: 900px;
   margin: 0 auto;
@@ -38,7 +36,7 @@ body{
   z-index: 1;
 }
 
-/* Hero panel for title area */
+/* Hero Panel */
 .hero{
   background: rgba(0,0,0,0.35);
   border: 1px solid rgba(255,255,255,0.18);
@@ -56,7 +54,15 @@ h1{
 
 .subtitle{
   font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+/* Bear GIF */
+.loveGif{
+  width: 260px;
+  margin: 15px 0;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
 }
 
 /* Music button */
@@ -74,7 +80,7 @@ h1{
   background: rgba(255,255,255,0.25);
 }
 
-/* Content sections */
+/* Sections */
 .section{
   background: rgba(255,255,255,0.92);
   color: #111;
@@ -105,7 +111,7 @@ button:not(#musicBtn):hover{
   margin-top: 20px;
 }
 
-/* ⭐🌸 Confetti */
+/* Confetti */
 #confetti{
   position: fixed;
   inset: 0;
@@ -140,6 +146,10 @@ button:not(#musicBtn):hover{
     <h1>Happy Birthday, Chery ❤️</h1>
     <div class="subtitle">The most amazing girl ever!!!!!</div>
 
+    <!-- Bear GIF -->
+    <img src="bear.gif" class="loveGif" alt="Cute bear">
+
+    <!-- Music -->
     <button id="musicBtn" type="button">▶ Play Music</button>
     <audio id="bgMusic" loop>
       <source src="song.mp3" type="audio/mpeg">
@@ -195,7 +205,6 @@ button:not(#musicBtn):hover{
 function confettiBurst(count = 160) {
   const holder = document.getElementById("confetti");
   holder.innerHTML = "";
-
   const particles = ["✨","⭐","🌸","💫","🌸","✨"];
 
   for (let i = 0; i < count; i++) {
