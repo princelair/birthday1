@@ -66,19 +66,20 @@
     text-align: left;
   }
 
-  button{
-    background-color: #ee9ca7;
-    border: none;
-    padding: 12px 25px;
-    color: white;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  button:hover{
-    background-color: #d66b82;
-  }
+ /* Only style normal buttons (NOT the music button) */
+button:not(#musicBtn){
+  background-color: #ee9ca7;
+  border: none;
+  padding: 12px 25px;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:not(#musicBtn):hover{
+  background-color: #d66b82;
+}
 
   .hidden{
     display: none;
