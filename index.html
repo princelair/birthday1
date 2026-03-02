@@ -6,13 +6,12 @@
 <title>Happy Birthday Chery</title>
 
 <style>
-  body{
+body{
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   min-height: 100vh;
   color: white;
 
-  /* Dark center */
   background-color: #0b0b14;
 
   /* Animated GIF borders */
@@ -22,51 +21,53 @@
   background-size: 260px auto;
 }
 
-  .container{
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 60px 20px;
-    text-align: center;
-  }
+/* Center content */
+.container{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
 
-  h1{
-    font-size: 48px;
-    color: white;
-    margin-bottom: 10px;
-  }
+h1{
+  font-size: 48px;
+  margin-bottom: 10px;
+}
 
-  .subtitle{
-    font-size: 20px;
-    color: white;
-    margin-bottom: 20px;
-  }
+.subtitle{
+  font-size: 20px;
+  margin-bottom: 20px;
+}
 
-  /* Music button styling */
-  #musicBtn{
-    margin: 10px 0 30px;
-    background: rgba(255,255,255,0.15);
-    color: white;
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 10px 18px;
-    border-radius: 999px;
-    cursor: pointer;
-    font-weight: 600;
-  }
-  #musicBtn:hover{
-    background: rgba(255,255,255,0.25);
-  }
+/* Music Button */
+#musicBtn{
+  margin: 10px 0 30px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+}
+#musicBtn:hover{
+  background: rgba(255,255,255,0.25);
+}
 
-  .section{
-    background: rgba(255,255,255,0.92);
-    color: #111;
-    padding: 30px;
-    margin: 30px 0;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-    text-align: left;
-  }
+/* Sections */
+.section{
+  background: rgba(255,255,255,0.92);
+  color: #111;
+  padding: 30px;
+  margin: 30px 0;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  text-align: left;
+}
 
- /* Only style normal buttons (NOT the music button) */
+/* Regular buttons (not music button) */
 button:not(#musicBtn){
   background-color: #ee9ca7;
   border: none;
@@ -81,20 +82,45 @@ button:not(#musicBtn):hover{
   background-color: #d66b82;
 }
 
-  .hidden{
-    display: none;
-    margin-top: 20px;
+.hidden{
+  display: none;
+  margin-top: 20px;
+}
+
+/* ⭐🌸 Anime Star + Petal Animation */
+#confetti{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.particle{
+  position: absolute;
+  top: -20px;
+  font-size: 20px;
+  animation: fall var(--dur) linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform: translate3d(var(--drift), 110vh, 0) rotate(var(--rot));
+    opacity: 0.2;
   }
+}
 </style>
 </head>
 
 <body>
 
+<div id="confetti"></div>
+
 <div class="container">
   <h1>Happy Birthday, Chery ❤️</h1>
   <div class="subtitle">The most amazing girl ever!!!!!</div>
 
-  <!-- ✅ Music button + audio goes in BODY (not in CSS) -->
+  <!-- 🎵 Music -->
   <button id="musicBtn" type="button">▶ Play Music</button>
   <audio id="bgMusic" loop>
     <source src="song.mp3" type="audio/mpeg">
@@ -103,32 +129,32 @@ button:not(#musicBtn):hover{
   <div class="section">
     <h2>Our Story</h2>
     <p>
-      From the moment we [how you met], I knew there was something different about you.
-      Every memory since then — [favorite trip/moment] — has meant more than you know.
+      From the moment we met, I knew there was something different about you.
+      Every memory since then has meant more than you know.
     </p>
   </div>
 
   <div class="section">
     <h2>10 Things I Love About You</h2>
     <p>
-      1. The way you laugh when you're genuinely happy.<br>
-      2. How you care deeply about the people around you.<br>
-      3. Your [specific trait].<br>
-      4. The way you [inside joke].<br>
+      1. Your laugh.<br>
+      2. Your kindness.<br>
+      3. Your energy.<br>
+      4. The way you smile.<br>
       5. Your ambition.<br>
-      6. Your kindness.<br>
-      7. Your confidence.<br>
-      8. The way you support me.<br>
-      9. Your smile.<br>
-      10. Everything else that makes you, you.
+      6. Your confidence.<br>
+      7. The way you care.<br>
+      8. Your heart.<br>
+      9. Your warmth.<br>
+      10. Everything that makes you you.
     </p>
   </div>
 
   <div class="section">
     <h2>Our Future</h2>
     <p>
-      This year I can’t wait to [future plan].
-      And one day, we’ll look back at this birthday and laugh at how far we’ve come.
+      This year I can’t wait to make even more memories with you.
+      And one day, we’ll look back at this birthday and smile.
     </p>
   </div>
 
@@ -145,26 +171,60 @@ button:not(#musicBtn):hover{
 </div>
 
 <script>
-  function revealMessage() {
-    document.getElementById("secret").style.display = "block";
+/* ⭐🌸 Star + Petal Burst */
+function confettiBurst(count = 120) {
+  const holder = document.getElementById("confetti");
+  holder.innerHTML = "";
+
+  const particles = ["✨", "⭐", "🌸", "💫", "🌸", "✨"];
+
+  for (let i = 0; i < count; i++) {
+    const piece = document.createElement("div");
+    piece.className = "particle";
+    piece.textContent = particles[Math.floor(Math.random() * particles.length)];
+
+    const left = Math.random() * 100;
+    const dur = 2 + Math.random() * 3;
+    const drift = (Math.random() * 60 - 30) + "vw";
+    const rot = (Math.random() * 720 - 360) + "deg";
+    const delay = Math.random() * 0.3;
+
+    piece.style.left = left + "vw";
+    piece.style.setProperty("--dur", dur + "s");
+    piece.style.setProperty("--drift", drift);
+    piece.style.setProperty("--rot", rot);
+    piece.style.animationDelay = delay + "s";
+
+    holder.appendChild(piece);
   }
 
-  const btn = document.getElementById("musicBtn");
-  const music = document.getElementById("bgMusic");
+  setTimeout(() => { holder.innerHTML = ""; }, 5500);
+}
 
-  btn.addEventListener("click", async () => {
-    if (music.paused) {
-      try {
-        await music.play();
-        btn.textContent = "⏸ Pause Music";
-      } catch (e) {
-        alert("Tap Play again (browser autoplay rules).");
-      }
-    } else {
-      music.pause();
-      btn.textContent = "▶ Play Music";
+window.addEventListener("load", () => confettiBurst());
+
+function revealMessage() {
+  document.getElementById("secret").style.display = "block";
+  confettiBurst(160);
+}
+
+/* 🎵 Music */
+const btn = document.getElementById("musicBtn");
+const music = document.getElementById("bgMusic");
+
+btn.addEventListener("click", async () => {
+  if (music.paused) {
+    try {
+      await music.play();
+      btn.textContent = "⏸ Pause Music";
+    } catch (e) {
+      alert("Tap Play again.");
     }
-  });
+  } else {
+    music.pause();
+    btn.textContent = "▶ Play Music";
+  }
+});
 </script>
 
 </body>
