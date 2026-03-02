@@ -11,7 +11,6 @@ body{
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   min-height: 100vh;
   color: white;
-
   background-color: #0b0b14;
 
   /* Animated GIF borders */
@@ -41,7 +40,7 @@ h1{
   margin-bottom: 20px;
 }
 
-/* Music Button */
+/* Music button */
 #musicBtn{
   margin: 10px 0 30px;
   background: rgba(255,255,255,0.15);
@@ -56,7 +55,7 @@ h1{
   background: rgba(255,255,255,0.25);
 }
 
-/* Sections */
+/* Content sections */
 .section{
   background: rgba(255,255,255,0.92);
   color: #111;
@@ -67,7 +66,7 @@ h1{
   text-align: left;
 }
 
-/* Regular buttons (not music button) */
+/* Regular buttons */
 button:not(#musicBtn){
   background-color: #ee9ca7;
   border: none;
@@ -87,26 +86,28 @@ button:not(#musicBtn):hover{
   margin-top: 20px;
 }
 
-/* ⭐🌸 Anime Star + Petal Animation */
+/* ⭐🌸 Confetti Layer */
 #confetti{
   position: fixed;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
-  z-index: 9999;
+  z-index: 2147483647; /* super high */
 }
 
 .particle{
   position: absolute;
-  top: -20px;
-  font-size: 20px;
+  top: -30px;
+  font-size: 28px; /* BIG so visible */
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.4));
   animation: fall var(--dur) linear forwards;
+  will-change: transform, opacity;
 }
 
 @keyframes fall{
   to{
-    transform: translate3d(var(--drift), 110vh, 0) rotate(var(--rot));
-    opacity: 0.2;
+    transform: translate3d(var(--drift), 115vh, 0) rotate(var(--rot));
+    opacity: 0;
   }
 }
 </style>
@@ -114,13 +115,14 @@ button:not(#musicBtn):hover{
 
 <body>
 
+<!-- Confetti container -->
 <div id="confetti"></div>
 
 <div class="container">
   <h1>Happy Birthday, Chery ❤️</h1>
   <div class="subtitle">The most amazing girl ever!!!!!</div>
 
-  <!-- 🎵 Music -->
+  <!-- Music -->
   <button id="musicBtn" type="button">▶ Play Music</button>
   <audio id="bgMusic" loop>
     <source src="song.mp3" type="audio/mpeg">
@@ -140,12 +142,12 @@ button:not(#musicBtn):hover{
       1. Your laugh.<br>
       2. Your kindness.<br>
       3. Your energy.<br>
-      4. The way you smile.<br>
+      4. Your smile.<br>
       5. Your ambition.<br>
       6. Your confidence.<br>
-      7. The way you care.<br>
-      8. Your heart.<br>
-      9. Your warmth.<br>
+      7. Your heart.<br>
+      8. Your warmth.<br>
+      9. Your glow.<br>
       10. Everything that makes you you.
     </p>
   </div>
@@ -171,12 +173,12 @@ button:not(#musicBtn):hover{
 </div>
 
 <script>
-/* ⭐🌸 Star + Petal Burst */
-function confettiBurst(count = 120) {
+// ⭐🌸 Star + Cherry Blossom Burst
+function confettiBurst(count = 180) {
   const holder = document.getElementById("confetti");
   holder.innerHTML = "";
 
-  const particles = ["✨", "⭐", "🌸", "💫", "🌸", "✨"];
+  const particles = ["✨","⭐","🌸","💫","🌸","✨","🌸","⭐"];
 
   for (let i = 0; i < count; i++) {
     const piece = document.createElement("div");
@@ -184,10 +186,10 @@ function confettiBurst(count = 120) {
     piece.textContent = particles[Math.floor(Math.random() * particles.length)];
 
     const left = Math.random() * 100;
-    const dur = 2 + Math.random() * 3;
-    const drift = (Math.random() * 60 - 30) + "vw";
-    const rot = (Math.random() * 720 - 360) + "deg";
-    const delay = Math.random() * 0.3;
+    const dur = 2.5 + Math.random() * 2.5;
+    const drift = (Math.random() * 80 - 40) + "vw";
+    const rot = (Math.random() * 1080 - 540) + "deg";
+    const delay = Math.random() * 0.15;
 
     piece.style.left = left + "vw";
     piece.style.setProperty("--dur", dur + "s");
@@ -198,17 +200,21 @@ function confettiBurst(count = 120) {
     holder.appendChild(piece);
   }
 
-  setTimeout(() => { holder.innerHTML = ""; }, 5500);
+  setTimeout(() => { holder.innerHTML = ""; }, 6500);
 }
 
-window.addEventListener("load", () => confettiBurst());
+// Fire on page load
+window.addEventListener("load", () => {
+  confettiBurst();
+});
 
+// Surprise button
 function revealMessage() {
   document.getElementById("secret").style.display = "block";
-  confettiBurst(160);
+  confettiBurst(220);
 }
 
-/* 🎵 Music */
+// Music
 const btn = document.getElementById("musicBtn");
 const music = document.getElementById("bgMusic");
 
