@@ -8,10 +8,18 @@
 <style>
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to bottom right, #ffdde1, #ee9ca7);
-    color: #333;
-    text-align: center;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  min-height: 100vh;
+  color: white;
+
+  /* Dark anime center background */
+  background-color: #0a0f2b;
+
+  /* Your image on both sides */
+  background-image: url("border.png"), url("border.png");
+  background-repeat: repeat-y, repeat-y;
+  background-position: left top, right top;
+  background-size: 300px auto;
 }
 
 .container {
