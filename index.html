@@ -3,76 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Chery </title>
+<title>Happy Birthday Chery</title>
 
 <style>
-body {
-    <button id="musicBtn">▶ Play Music</button>
-
-<audio id="bgMusic" loop>
-  <source src="song.mp3" type="audio/mpeg">
-</audio>
-    #musicBtn{
-  margin: 20px 0;
-  background: rgba(255,255,255,0.15);
-  color: white;
-  border: 1px solid rgba(255,255,255,0.3);
-  padding: 10px 18px;
-  border-radius: 999px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-#musicBtn:hover{
-  background: rgba(255,255,255,0.25);
-}
+  body{
     margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-  min-height: 100vh;
-  color: white;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+    color: white;
 
-  /* Dark center background */
-  background-color: #0b0b14;
+    /* Dark center background */
+    background-color: #0b0b14;
 
-  /* Your image on left and right */
-  background-image: url("border.png"), url("border.png");
-  background-repeat: repeat-y, repeat-y;
-  background-position: left center, right center;
-  background-size: 320px auto;}
+    /* Your image on left and right */
+    background-image: url("border.png"), url("border.png");
+    background-repeat: repeat-y, repeat-y;
+    background-position: left center, right center;
+    background-size: 320px auto;
+  }
 
-.container {
+  .container{
     max-width: 900px;
-  margin: 0 auto;
-  padding: 60px 20px;
-}
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: center;
+  }
 
-h1 {
+  h1{
     font-size: 48px;
     color: white;
     margin-bottom: 10px;
-}
+  }
 
-.subtitle {
+  .subtitle{
     font-size: 20px;
     color: white;
-    margin-bottom: 50px;
-}
+    margin-bottom: 20px;
+  }
 
-.section {
-    background: white;
+  /* Music button styling */
+  #musicBtn{
+    margin: 10px 0 30px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 10px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  #musicBtn:hover{
+    background: rgba(255,255,255,0.25);
+  }
+
+  .section{
+    background: rgba(255,255,255,0.92);
+    color: #111;
     padding: 30px;
     margin: 30px 0;
     border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    text-align: left;
+  }
 
-img {
-    width: 220px;
-    border-radius: 12px;
-    margin: 10px;
-}
-
-button {
+  button{
     background-color: #ee9ca7;
     border: none;
     padding: 12px 25px;
@@ -81,92 +75,96 @@ button {
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
-}
-
-button:hover {
+  }
+  button:hover{
     background-color: #d66b82;
-}
+  }
 
-.hidden {
+  .hidden{
     display: none;
     margin-top: 20px;
-}
+  }
 </style>
 </head>
 
 <body>
 
 <div class="container">
-    <h1>Happy Birthday, [Chery] ❤️</h1>
-    <div class="subtitle">
-        The most amazing girl ever!!!!!
-    </div>
+  <h1>Happy Birthday, Chery ❤️</h1>
+  <div class="subtitle">The most amazing girl ever!!!!!</div>
 
-    <div class="section">
-        <h2>Our Story</h2>
-        <p>
-            From the moment we [how you met], I knew there was something different about you.
-            Every memory since then — [favorite trip/moment] — has meant more than you know.
-        </p>
-    </div>
+  <!-- ✅ Music button + audio goes in BODY (not in CSS) -->
+  <button id="musicBtn" type="button">▶ Play Music</button>
+  <audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
 
-    <div class="section">
-        <h2>10 Things I Love About You</h2>
-        <p>
-            1. The way you laugh when you're genuinely happy.<br>
-            2. How you care deeply about the people around you.<br>
-            3. Your [specific trait].<br>
-            4. The way you [inside joke].<br>
-            5. Your ambition.<br>
-            6. Your kindness.<br>
-            7. Your confidence.<br>
-            8. The way you support me.<br>
-            9. Your smile.<br>
-            10. Everything else that makes you, you.
-        </p>
-    </div>
+  <div class="section">
+    <h2>Our Story</h2>
+    <p>
+      From the moment we [how you met], I knew there was something different about you.
+      Every memory since then — [favorite trip/moment] — has meant more than you know.
+    </p>
+  </div>
 
-    <div class="section">
-        <h2>Our Future</h2>
-        <p>
-            This year I can’t wait to [future plan].
-            And one day, we’ll look back at this birthday and laugh at how far we’ve come.
-        </p>
-    </div>
+  <div class="section">
+    <h2>10 Things I Love About You</h2>
+    <p>
+      1. The way you laugh when you're genuinely happy.<br>
+      2. How you care deeply about the people around you.<br>
+      3. Your [specific trait].<br>
+      4. The way you [inside joke].<br>
+      5. Your ambition.<br>
+      6. Your kindness.<br>
+      7. Your confidence.<br>
+      8. The way you support me.<br>
+      9. Your smile.<br>
+      10. Everything else that makes you, you.
+    </p>
+  </div>
 
-    <div class="section">
-        <h2>Surprise</h2>
-        <button onclick="revealMessage()">Click Me</button>
-        <div id="secret" class="hidden">
-            <p>
-                I’m grateful for you more than you realize.
-                Thank you for being in my life. ❤️
-            </p>
-        </div>
+  <div class="section">
+    <h2>Our Future</h2>
+    <p>
+      This year I can’t wait to [future plan].
+      And one day, we’ll look back at this birthday and laugh at how far we’ve come.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Surprise</h2>
+    <button type="button" onclick="revealMessage()">Click Me</button>
+    <div id="secret" class="hidden">
+      <p>
+        I’m grateful for you more than you realize.
+        Thank you for being in my life. ❤️
+      </p>
     </div>
+  </div>
 </div>
 
 <script>
-function revealMessage() {
-  document.getElementById("secret").style.display = "block";
-}
-
-const btn = document.getElementById("musicBtn");
-const music = document.getElementById("bgMusic");
-
-btn.addEventListener("click", async () => {
-  if (music.paused) {
-    try {
-      await music.play();
-      btn.textContent = "⏸ Pause Music";
-    } catch (e) {
-      alert("Tap again to allow music.");
-    }
-  } else {
-    music.pause();
-    btn.textContent = "▶ Play Music";
+  function revealMessage() {
+    document.getElementById("secret").style.display = "block";
   }
-});
+
+  const btn = document.getElementById("musicBtn");
+  const music = document.getElementById("bgMusic");
+
+  btn.addEventListener("click", async () => {
+    if (music.paused) {
+      try {
+        await music.play();
+        btn.textContent = "⏸ Pause Music";
+      } catch (e) {
+        alert("Tap Play again (browser autoplay rules).");
+      }
+    } else {
+      music.pause();
+      btn.textContent = "▶ Play Music";
+    }
+  });
 </script>
+
 </body>
 </html>
